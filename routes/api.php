@@ -53,7 +53,6 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::delete('/{id}/delete', 'Api\V1\CategoryController@actionCategoryDelete')->name('api.category_delete');
     });
 
-
     Route::get('/products', 'Api\V1\ProductController@actionProducts')->name('api.products');
     Route::post('/productsListSearch', 'Api\V1\ProductController@actionProductsListSearch')->name('api.products_list_search');
     Route::post('/productsPageSearch', 'Api\V1\ProductController@actionProductsPageSearch')->name('api.products_page_search');

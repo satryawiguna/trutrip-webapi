@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
         $user = User::create([
             'role_id' => $role->id,
             'username' => 'admin',
-            'email' => 'admin@loopit.co',
+            'email' => 'admin@trutrip.com',
             'email_verified_at' => now(),
             'password' => Hash::make('12345678'), // 12345678
             'remember_token' => Str::random(10),
