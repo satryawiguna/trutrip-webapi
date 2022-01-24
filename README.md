@@ -1,4 +1,4 @@
-# loopit-webapi
+# trutrip-webapi
 
 ## Project setup (Manual)
 ```
