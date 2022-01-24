@@ -48,3 +48,9 @@ php artisan serve
 ```
 php artisan test
 ```
+
+### Postman Export file
+```
+Please take the Postman export file on the root project folder
+"Trutrip.postman_collection.json"
+```
