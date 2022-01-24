@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
 
         ini_set('memory_limit','512M');
 
-//        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
 
         DB::table('roles')->truncate();
         DB::table('users')->truncate();
@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         DB::table('products')->truncate();
 
 
-//        DB::statement('SET FOREIGN_KEY_CHECKS=1');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);

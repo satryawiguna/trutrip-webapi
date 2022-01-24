@@ -31,17 +31,19 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 Route::group(['middleware' => 'auth:api', 'prefix' => 'profile'], function () {
-    Route::get('/me/{id}', 'Api\V1\MembershipController@actionProfile')->name('api.profile');
+    Route::get('/me', 'Api\V1\MembershipController@actionProfile')->name('api.profile');
     Route::put('/me/update', 'Api\V1\MembershipController@actionProfileUpdate')->name('api.profile_update');
     Route::post('/photo/update', 'Api\V1\MembershipController@actionPhotoUpdate')->name('api.photo_update');
 });
 
 Route::group(['middleware' => 'auth:api'], function () {
-    Route::post('/users', 'Api\V1\UserController@actionUsers')->name('api.users');
+    Route::get('/users', 'Api\V1\UserController@actionUsers')->name('api.users');
     Route::get('/user/{id}', 'Api\V1\UserController@actionUser')->name('api.user');
     Route::post('/user/store', 'Api\V1\UserController@actionUserStore')->name('api.user_store');
-    Route::put('/user/update', 'Api\V1\UserController@actionUserUpdate')->name('api.user_update');
-    Route::delete('/user/delete/{id}', 'Api\V1\UserController@actionUserDelete')->name('api.user_delete');
+    Route::group(['prefix' => 'user'], function () {
+        Route::put('/{id}/update', 'Api\V1\UserController@actionUserUpdate')->name('api.user_update');
+        Route::delete('/{id}/delete', 'Api\V1\UserController@actionUserDelete')->name('api.user_delete');
+    });
 
     Route::get('/categories', 'Api\V1\CategoryController@actionCategories')->name('api.categories');
     Route::post('/categoriesListSearch', 'Api\V1\CategoryController@actionCategoriesListSearch')->name('api.categories_list_search');

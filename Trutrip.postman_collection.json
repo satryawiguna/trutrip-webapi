@@ -1,0 +1,1161 @@
+{
+	"info": {
+		"_postman_id": "9213d9fc-da2c-4c4b-b470-6e6873f2eab3",
+		"name": "Trutrip",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Auth/Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"identity\": \"admin@loopit.co\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register/Member",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nick_name\": \"Satrya\",\n    \"full_name\": \"Satrya Wiguna\",\n    \"username\": \"satryawiguna\",\n    \"email\": \"satrya@freshcms.net\",\n    \"password\": \"12345678\",\n    \"password_confirmation\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/register/member",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register",
+								"member"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth/Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@trutrip.com\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Password/Email",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Me",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/auth/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Membership",
+			"item": [
+				{
+					"name": "Profile/Me",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/profile/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile/Me/Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5NTVmZjA5Yi1lN2Q3LTQ3NDItOGYyNy02NWNmMDE3YjM5NzIiLCJqdGkiOiJmZjhjN2RmM2Q5ZWI2M2Q4YWNkMmU2NGJkYzUwMWE1Y2VlYjY5ODUzNTZmMDU2NWMzMWE0MDQxY2IwN2Q3NGFhNDlmZGFmOGZkNDU3ZmJmYyIsImlhdCI6MTY0MjM5NTY1NS45MzI1NjUsIm5iZiI6MTY0MjM5NTY1NS45MzI1NzQsImV4cCI6MTY3MzkzMTY1NS45MjY4NjMsInN1YiI6Ijk5M2UwNWZlLTE1MTAtNDBlOS1iM2JiLWFkNjhkNDY5ZDY0YSIsInNjb3BlcyI6W119.CR6ujn9PGvrPvfBibTqMksRUWWleODYU_UzwcKa4OE1PpfvJ3yQ3srn4IHuPKYAlPRxXDP4quPinw4KtdOh7IrANnaeFGgi-yIMMW-aVbmzMSztktG-zDEHgi38_NaBW2sFtbFPvziJikjAUEzYLRXptcLO5qzc4HdOTMZ1-PqtEklUVq_if0Y7KZf2_VGVk2BS1z50fOnKLxaqaIr6eZYoEVZ6NMHzessoRVdOb52DfZDePs3XguOEnARs9QXOdHVd4RnyYlR1lvTHXY7YBAGF1mc0gMmiudONvr_H-SzTHGHml9ehxOKh_fdMrmr_p54LoBnD40Ehd_Z0k35VqsxhxIGtNzpcWUgeFxDLS8sbN_cmJTMJ1eI1_FGbG_RS1VEjI6HbPrXJ-8K5KtuqgjNBHvrQoaGpkBNwQ7-pKSQ_jFvnSG2LwPqr5fqruM5j2okHfbl_2vF_gvxrrCq3bdx3J6LXRjrpF4f6GPoYGvw63ucrG3OjWKSFFIWi-oTnyQr5BuO9x2g_GhlWSFmVwnHx0TcarUfrSEwzqtlJR9xAp0ohogLe646NAQsrq3j9tcPJEA22SvW6mlGTOxHVOR8NNXieG9t3dA-aukz5lWxVAz0LU3Zzu0Kd4NMmbC3wg4YhGP1xIfqBIk_5AhsZ5A2QOySINVG5vg2rgCFuQCgE",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nick_name\": \"_Satrya\",\n    \"full_name\": \"_Satrya _Wiguna\",\n    \"post_code\": \"12345\",\n    \"country\": \"Indonesia\",\n    \"state\": \"Bali\",\n    \"city\": \"Gianyar\",\n    \"address\": \"Jl. Kresna Gg Ia\",\n    \"mobile\": \"1234567890\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/profile/me/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"me",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Photo/Me/Update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5NTVmZjA5Yi1lN2Q3LTQ3NDItOGYyNy02NWNmMDE3YjM5NzIiLCJqdGkiOiJmZjhjN2RmM2Q5ZWI2M2Q4YWNkMmU2NGJkYzUwMWE1Y2VlYjY5ODUzNTZmMDU2NWMzMWE0MDQxY2IwN2Q3NGFhNDlmZGFmOGZkNDU3ZmJmYyIsImlhdCI6MTY0MjM5NTY1NS45MzI1NjUsIm5iZiI6MTY0MjM5NTY1NS45MzI1NzQsImV4cCI6MTY3MzkzMTY1NS45MjY4NjMsInN1YiI6Ijk5M2UwNWZlLTE1MTAtNDBlOS1iM2JiLWFkNjhkNDY5ZDY0YSIsInNjb3BlcyI6W119.CR6ujn9PGvrPvfBibTqMksRUWWleODYU_UzwcKa4OE1PpfvJ3yQ3srn4IHuPKYAlPRxXDP4quPinw4KtdOh7IrANnaeFGgi-yIMMW-aVbmzMSztktG-zDEHgi38_NaBW2sFtbFPvziJikjAUEzYLRXptcLO5qzc4HdOTMZ1-PqtEklUVq_if0Y7KZf2_VGVk2BS1z50fOnKLxaqaIr6eZYoEVZ6NMHzessoRVdOb52DfZDePs3XguOEnARs9QXOdHVd4RnyYlR1lvTHXY7YBAGF1mc0gMmiudONvr_H-SzTHGHml9ehxOKh_fdMrmr_p54LoBnD40Ehd_Z0k35VqsxhxIGtNzpcWUgeFxDLS8sbN_cmJTMJ1eI1_FGbG_RS1VEjI6HbPrXJ-8K5KtuqgjNBHvrQoaGpkBNwQ7-pKSQ_jFvnSG2LwPqr5fqruM5j2okHfbl_2vF_gvxrrCq3bdx3J6LXRjrpF4f6GPoYGvw63ucrG3OjWKSFFIWi-oTnyQr5BuO9x2g_GhlWSFmVwnHx0TcarUfrSEwzqtlJR9xAp0ohogLe646NAQsrq3j9tcPJEA22SvW6mlGTOxHVOR8NNXieG9t3dA-aukz5lWxVAz0LU3Zzu0Kd4NMmbC3wg4YhGP1xIfqBIk_5AhsZ5A2QOySINVG5vg2rgCFuQCgE",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "8a18d9df-ed91-4dee-b5a0-650dfcbceab9",
+									"type": "default"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/profile/photo/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"photo",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"role_id\": 1,\n    // \"email\": \"satrya\",\n    // \"full_name\": \"satrya\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/users/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User/{id}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/user/0348fdd3-b94f-4a30-af25-a936b1e1c6ae",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"0348fdd3-b94f-4a30-af25-a936b1e1c6ae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User/{id}/Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"role_id\": 2,\n    \"nick_name\": \"_Erna_\",\n    \"full_name\": \"_Erna Widhiastuti_\",\n    \"username\": \"_ernawidhiastuti_\",\n    \"email\": \"_erna@freshcms.net_\",\n    \"password\": \"12345678\",\n    \"password_confirmation\": \"12345678\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/user/4fced176-969b-4821-9666-10291d50bc01/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"4fced176-969b-4821-9666-10291d50bc01",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User/Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nick_name\": \"Erna\",\n    \"full_name\": \"Erna Widhiastuti\",\n    \"username\": \"ernawidhiastuti\",\n    \"email\": \"erna@freshcms.net\",\n    \"password\": \"12345678\",\n    \"password_confirmation\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/user/store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User/{id}/Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/user/4fced176-969b-4821-9666-10291d50bc01/delete",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"4fced176-969b-4821-9666-10291d50bc01",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Categories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category/{id}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/user/0348fdd3-b94f-4a30-af25-a936b1e1c6ae",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"0348fdd3-b94f-4a30-af25-a936b1e1c6ae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CategoriesPageSearch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"search\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/categoriesPageSearch",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"categoriesPageSearch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CategoriesListSearch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/categoriesListSearch?Content-Type=application/json&Accept=application/json&Authorization={{token}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"categoriesListSearch"
+							],
+							"query": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Authorization",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category/Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Category 1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/category/store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"category",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category/{id}/Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Category 1.1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/category/11/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"category",
+								"11",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category/{id}/Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/category/11/delete",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"category",
+								"11",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductsPageSearch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": null,\n    \"category_id\": null,\n    \"schedule\": null,\n    \"search\": null,\n    \"pagePerpage\": 5\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/productsListSearch",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"productsListSearch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductsListSearch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": null,\n    \"category_id\": null,\n    \"schedule\": null,\n    \"search\": null,\n    \"pagePerpage\": 10\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/productsPageSearch",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"productsPageSearch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product/{id}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/product/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product/Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "0e16d9c5-06c0-4f30-bf3a-e76b04b603a6",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "aa",
+									"type": "text"
+								},
+								{
+									"key": "destination",
+									"value": "aa",
+									"type": "text"
+								},
+								{
+									"key": "schedule_start",
+									"value": "2022-01-25",
+									"type": "text"
+								},
+								{
+									"key": "schedule_end",
+									"value": "2022-01-26",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "aa",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/Users/satryawiguna/Downloads/1638674205368.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/product/store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"product",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product/{id}/Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "0e16d9c5-06c0-4f30-bf3a-e76b04b603a6",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "aaaa",
+									"type": "text"
+								},
+								{
+									"key": "destination",
+									"value": "aaaa",
+									"type": "text"
+								},
+								{
+									"key": "schedule_start",
+									"value": "2022-01-25",
+									"type": "text"
+								},
+								{
+									"key": "schedule_end",
+									"value": "2022-01-26",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "aaaa",
+									"type": "text"
+								},
+								{
+									"key": "Photo",
+									"type": "file",
+									"src": []
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/product/11/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"product",
+								"11",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category/{id}/Delete Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/product/12/delete",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"product",
+								"12",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

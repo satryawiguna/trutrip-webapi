@@ -115,23 +115,13 @@ class UserController extends Controller
         }
     }
 
-    public function actionUserUpdate(Request $request)
+    public function actionUserUpdate($id, Request $request)
     {
         if (!Auth::user()->can('update', [User::class])) {
             return $this->responseUnauthorized();
         }
 
-        $validatedUserUpdate = Validator::make($request->all(), [
-            'username' => 'required|unique:users|max:255',
-            'email' => 'required|unique:users|max:255|email',
-            'password' => ['required', 'confirmed', Password::min(8)]
-        ]);
-
-        if ($validatedUserUpdate->fails()) {
-            return $this->responseUnprocessable($validatedUserUpdate->errors());
-        }
-
-        $user = User::find($request->input('id'));
+        $user = User::find($id);
 
         if (!$user)
             return $this->responseUnprocessable(new MessageBag(['User is not found']));

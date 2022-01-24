@@ -43,15 +43,11 @@ class ProductTransformer extends TransformerAbstract
                 "name" => $product->category->name
             ],
             "name" => $product->name,
-            "kilometer" => $product->kilometer,
-            "color" => $product->color,
-            "machine" => $product->machine,
-            "passenger" => $product->passenger,
-            "transmission" => $product->transmission,
-            "photo" => $product->photo,
-            "note" => $product->note,
-            "specification" => $product->specification,
-            "equipment" => $product->equipment
+            "destination" => $product->destination,
+            "schedule_start" => $product->schedule_start,
+            "schedule_end" => $product->schedule_end,
+            "description" => $product->description,
+            "photo" => $product->photo
         ];
     }
 }

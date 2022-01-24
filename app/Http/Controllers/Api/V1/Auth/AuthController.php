@@ -58,17 +58,17 @@ class AuthController extends Controller
         $user = Auth::user();
         $token = $user->createToken('token')->accessToken;
 
-//        return response([
-//            'message' => 'Success',
-//            'token' => $token,
-//            'role' => $user->role->name,
-//            'email' => $user->email,
-//            'nick_name' => $user->contact->nick_name,
-//            'full_name' => $user->contact->full_name
-//        ]);
+        return response([
+            'message' => 'Success',
+            'token' => $token,
+            'role' => $user->role->name,
+            'email' => $user->email,
+            'nick_name' => $user->contact->nick_name,
+            'full_name' => $user->contact->full_name
+        ]);
 
-        $cookie = cookie('token', $token, 60*24);
-        return response(['message' => 'Success'])->withCookie($cookie);
+//        $cookie = cookie('token', $token, 60*24);
+//        return response(['message' => 'Success'])->withCookie($cookie);
     }
 
     public function actionLogout(Request $request)

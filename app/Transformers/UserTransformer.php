@@ -33,6 +33,7 @@ class UserTransformer extends TransformerAbstract
     public function transform(User $user)
     {
         return [
+            'id' => $user->id,
             'nick_name' => $user->contact->nick_name,
             'full_name' => $user->contact->full_name,
             'post_code' => $user->contact->post_code,

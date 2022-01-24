@@ -55,10 +55,10 @@ class RegisterController extends Controller
             ]));
 
             // Send email verification
-//            event(new Registered($user));
+            event(new Registered($user));
 
             // Send welcome email
-//            $user->notify(new WelcomeEmailNotification($user));
+            $user->notify(new WelcomeEmailNotification($user));
 
             return fractal($user, new RegisterTransfomer())->toArray();
         } catch (Exception $e) {

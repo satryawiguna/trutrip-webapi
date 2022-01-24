@@ -6,14 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Transformers\ProfileTransformer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\MessageBag;
 
 class MembershipController extends Controller
 {
-    public function actionProfile($id)
+    public function actionProfile()
     {
+        $id = Auth::id();
+
         // Get profile
         $profile = (new User())->with(['contact'])
             ->find($id);
@@ -27,9 +30,11 @@ class MembershipController extends Controller
 
     public function actionProfileUpdate(Request $request)
     {
+        $id = Auth::id();
+
         // Get profile
         $profile = (new User())->with(['contact'])
-            ->find($request->input('id'));
+            ->find($id);
 
         // Check if user is exists
         if (!$profile)
@@ -65,9 +70,11 @@ class MembershipController extends Controller
 
     public function actionPhotoUpdate(Request $request)
     {
+        $id = Auth::id();
+
         // Get profile
         $profile = (new User())->with(['contact'])
-            ->find($request->input('id'));
+            ->find($id);
 
         // Check if user is exists
         if (!$profile)
